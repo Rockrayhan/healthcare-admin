@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2024 at 10:24 AM
+-- Generation Time: Jan 09, 2024 at 02:13 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,6 +33,13 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(3, 'pant', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -143,7 +150,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ALAUDDIN', 'abc@gmail.com', NULL, '$2y$12$.wfl1H9ad9XaCtlGbEgt2uu/23EAhtDzdzyBuuzdBFuEa3Q7hMoKi', NULL, '2024-01-04 02:56:33', '2024-01-04 02:56:33');
+(1, 'ALAUDDIN', 'abc@gmail.com', NULL, '$2y$12$.wfl1H9ad9XaCtlGbEgt2uu/23EAhtDzdzyBuuzdBFuEa3Q7hMoKi', NULL, '2024-01-04 02:56:33', '2024-01-04 02:56:33'),
+(2, 'abc22', 'abc22@gmail.com', NULL, '$2y$12$cNvdPYTb58.EVgNhbVh88uUHdktXwJo270ZPCQTZIQhypGYB.8O/e', NULL, '2024-01-08 02:55:20', '2024-01-08 02:55:20');
 
 --
 -- Indexes for dumped tables
@@ -203,7 +211,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -233,7 +241,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

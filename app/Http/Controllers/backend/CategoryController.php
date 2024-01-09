@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
+
+
 
 class CategoryController extends Controller
 {
@@ -12,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.category.index') ;
+        $data['cats'] = Category::all();
+        return view('backend.category.index', $data) ;
     }
 
     /**
@@ -28,7 +32,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data  = ['name' => $request->name];
+
+        $model = new Category();
+        if ( $model->insert($data) ){
+            return redirect('category')->with('msg' , 'Successfully category added');
+        }
     }
 
     /**
@@ -58,8 +67,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id)
     {
-        //
+        $data = Category::find($id) ;
+        $data->delete();
+        return redirect('/category')->with('msg', 'Your data has been deleted');
     }
 }
