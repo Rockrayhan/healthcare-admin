@@ -51,17 +51,30 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $data['cats'] = Category::find($id) ; 
+        return view('backend.category.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+
+        $validate = $request->validate([
+            'name' => 'required|min:4|max:255',
+            // 'email' => 'email',
+        ] );
+
+        $data = [
+            'name' => $request->name,
+        ];
+        // print_r($request);
+        $category->update($data);
+        return redirect('/category')->with('msg' , 'Your data has updated') ;
     }
 
     /**
