@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product;
+use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $data['product'] = Product::all();
+        return view('backend.products.index', $data);
     }
 
     /**
@@ -20,7 +24,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $data['cats'] = Category::all();
+        return view('backend.products.create', $data);
     }
 
     /**
@@ -28,7 +33,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'name' => $request->name ,
+            'description' => $request->desc ,
+            'price' => $request->price ,
+            'category_id' => $request->cats ,
+        ] ;
+
+        $model = new Product();
+        if( $model->insert($data) ){
+            return redirect('/product')->with('msg' , 'successfully inserted');
+        }
     }
 
     /**
