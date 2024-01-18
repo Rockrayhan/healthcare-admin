@@ -6,7 +6,7 @@
 
 @if (session('msg'))
     <div class="col-sm-12">
-        <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-gray-600" role="alert">
+        <div class="p-4 mb-4 text-sm text-white rounded-lg bg-gray-600" role="alert">
             {{ session('msg') }}
                 <span class="font-medium">Success alert!</span> Change a few things up and try submitting again.
             </div>
@@ -54,7 +54,7 @@
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <a href="category/delete/{{$item['id']}}"> delete </a>
-                    <a href="category/edit/{{$item['id']}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <a href="product/edit/{{$item['id']}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                 </td>
    
             </tr>

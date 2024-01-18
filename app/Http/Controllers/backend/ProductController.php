@@ -51,7 +51,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
@@ -59,7 +59,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::find($id);
+        $data2['cats'] = Category::all();
+        $data['product'] = $product ;
+        return view('backend.products.edit', compact('data', 'data2' )) ;
     }
 
     /**
@@ -67,7 +70,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::find($id) ;
+
+        $validate = $request->validate([
+            'name' => 'required|min:2|max:20'
+        ]);
+
+        if ($validate){
+            $data = [
+                'name' => $request->name ,
+                'description' => $request->desc ,
+                'price' => $request->price ,
+                'category_id' => $request->cats ,
+            ] ;
+            // print_r($data);
+            $product->update($data);
+            return redirect('/product')->with('msg', 'data updated successfully') ;
+        }
     }
 
     /**
