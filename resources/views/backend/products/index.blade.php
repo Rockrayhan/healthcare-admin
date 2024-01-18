@@ -56,7 +56,7 @@
                     {{$item['price']}}
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{$item['category_id']}}
+                    {{$item->category->name}}
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <a href="product/delete/{{$item['id']}}"> delete </a>

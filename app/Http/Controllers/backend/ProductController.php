@@ -79,7 +79,8 @@ class ProductController extends Controller
 
 
         $request->validate([
-            'name' => 'required|min:4|max:5'
+            'name' => 'required|min:3|max:50',
+            'desc' => 'required|min:4|max:255',
         ],$messages);
 
         // if ($validate){
