@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('description' , 100);
             $table->decimal('price' , 10);
             $table->tinyInteger('category_id');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
