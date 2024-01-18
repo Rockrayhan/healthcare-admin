@@ -5,14 +5,20 @@
 <h1> All Products </h1>
 
 @if (session('msg'))
-    <div class="col-sm-12">
-        <div class="p-4 mb-4 text-sm text-white rounded-lg bg-gray-600" role="alert">
+    <div class="">
+        <div class="p-4 text-white bg-green-500 rounded-lg shadow-md">
             {{ session('msg') }}
-                <span class="font-medium">Success alert!</span> Change a few things up and try submitting again.
-            </div>
+        </div>
     </div>
 @endif
- 
+@if (session('msg_delete'))
+    <div class="">
+        <div class="p-4 text-white bg-red-500 rounded-lg shadow-md">
+            {{ session('msg_delete') }}
+        </div>
+    </div>
+@endif
+
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -53,7 +59,7 @@
                     {{$item['category_id']}}
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <a href="category/delete/{{$item['id']}}"> delete </a>
+                    <a href="product/delete/{{$item['id']}}"> delete </a>
                     <a href="product/edit/{{$item['id']}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                 </td>
    

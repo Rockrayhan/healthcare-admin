@@ -72,11 +72,17 @@ class ProductController extends Controller
     {
         $product = Product::find($id) ;
 
-        $validate = $request->validate([
-            'name' => 'required|min:2|max:20'
-        ]);
+        $messages = [
+            'name.required' => 'Naam koi ??',
+            'name.min' => ' give more letter to your name',
+        ] ;
 
-        if ($validate){
+
+        $request->validate([
+            'name' => 'required|min:4|max:5'
+        ],$messages);
+
+        // if ($validate){
             $data = [
                 'name' => $request->name ,
                 'description' => $request->desc ,
@@ -86,7 +92,7 @@ class ProductController extends Controller
             // print_r($data);
             $product->update($data);
             return redirect('/product')->with('msg', 'data updated successfully') ;
-        }
+        // }
     }
 
     /**
@@ -94,6 +100,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect('/product')->with('msg_delete', 'khel Khotom');
     }
 }

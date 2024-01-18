@@ -5,7 +5,7 @@
 <h1 class="text-red-600"> Insert Product </h1>
  
 @if ($errors->any())
-<div class="bg-red-300">
+<div class="p-4 text-white bg-red-500 rounded-lg shadow-md">
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
