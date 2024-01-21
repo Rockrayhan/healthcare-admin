@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2024 at 02:13 AM
+-- Generation Time: Jan 21, 2024 at 12:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -39,7 +39,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(3, 'pant', NULL, NULL);
+(1, 'covid', '2024-01-21 09:19:55', '2024-01-21 09:19:55'),
+(2, 'Medical', '2024-01-21 09:19:55', '2024-01-21 09:19:55'),
+(3, 'Surgery', '2024-01-21 09:19:55', '2024-01-21 09:19:55');
 
 -- --------------------------------------------------------
 
@@ -74,12 +76,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(5, '2014_10_12_000000_create_users_table', 1),
-(6, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(7, '2019_08_19_000000_create_failed_jobs_table', 1),
-(8, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(9, '2024_01_04_084239_create_categories_table', 1),
-(10, '2024_01_04_084331_create_products_table', 1);
+(17, '2014_10_12_000000_create_users_table', 1),
+(18, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(19, '2019_08_19_000000_create_failed_jobs_table', 1),
+(20, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(21, '2024_01_04_084239_create_categories_table', 1),
+(22, '2024_01_04_084331_create_products_table', 1);
 
 -- --------------------------------------------------------
 
@@ -124,9 +126,24 @@ CREATE TABLE `products` (
   `description` varchar(100) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `category_id` tinyint(4) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `image` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `description`, `price`, `category_id`, `image`, `created_at`, `updated_at`) VALUES
+(8, 'Hand sanitizer', 'This is Product Description', 500.00, 1, '1705834501.jpg', '2024-01-21 10:55:01', '2024-01-21 10:55:01'),
+(9, 'Plastic face shield', 'asasadasdasasd', 600.00, 2, '1705834590.jpg', '2024-01-21 10:56:30', '2024-01-21 10:56:30'),
+(10, 'Glass face mask', 'asdasdasd', 200.00, 2, '1705834611.jpg', '2024-01-21 10:56:51', '2024-01-21 10:56:51'),
+(11, 'Saftey mask', 'aasdadasd', 420.00, 3, '1705834644.jpg', '2024-01-21 10:57:24', '2024-01-21 10:57:24'),
+(12, 'Plastic face shield', 'asadsadasd', 420.00, 3, '1705834671.jpg', '2024-01-21 10:57:51', '2024-01-21 10:57:51'),
+(13, 'N95 face mask', 'asdasdasdasdasd', 1500.00, 1, '1705834700.jpg', '2024-01-21 10:58:20', '2024-01-21 10:58:20'),
+(14, 'Oxygen mask', 'asdasdsadasdsadd', 150.00, 2, '1705834734.jpg', '2024-01-21 10:58:54', '2024-01-21 10:58:54'),
+(15, 'Hand gloves', 'asdasdasdsad', 600.00, 3, '1705834753.jpg', '2024-01-21 10:59:13', '2024-01-21 10:59:13');
 
 -- --------------------------------------------------------
 
@@ -141,8 +158,8 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -150,8 +167,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ALAUDDIN', 'abc@gmail.com', NULL, '$2y$12$.wfl1H9ad9XaCtlGbEgt2uu/23EAhtDzdzyBuuzdBFuEa3Q7hMoKi', NULL, '2024-01-04 02:56:33', '2024-01-04 02:56:33'),
-(2, 'abc22', 'abc22@gmail.com', NULL, '$2y$12$cNvdPYTb58.EVgNhbVh88uUHdktXwJo270ZPCQTZIQhypGYB.8O/e', NULL, '2024-01-08 02:55:20', '2024-01-08 02:55:20');
+(1, 'Mr. User', 'abc@gmail.com', NULL, '$2y$12$C3P4CpcLQzeSP2tuwq4phu5WYwjETSDVtllx.wllL9.u0mRVJPMmi', NULL, '2024-01-21 09:19:55', '2024-01-21 09:19:55');
 
 --
 -- Indexes for dumped tables
@@ -223,7 +239,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -235,13 +251,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
