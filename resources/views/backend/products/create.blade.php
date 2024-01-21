@@ -14,18 +14,21 @@
 </div>
 @endif
 
-<form class="max-w-sm mx-auto" method="POST" action="{{route('product.store')}}">
+<form class="max-w-sm mx-auto" method="POST" action="{{route('product.store')}}" enctype="multipart/form-data">
     @csrf
+    {{-- name --}}
     <div class="mb-5">
       <label  class="block mb-2 text-sm font-medium text-white">Product Name</label>
-      <input type="text" name="name"  class=" p-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{old('name')}}">
+      <input type="text" name="name"  class=" p-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{old('name')}}">
     </div>
 
+    {{-- Description --}}
     <div class="mb-5">
       <label  class="block mb-2 text-sm font-medium text-white">Product Description</label>
       <textarea class="bg-gray-700" name="desc" cols="50" rows="5"> {{old('desc')}} </textarea>
     </div>
 
+    {{-- price --}}
     <div class="mb-5">
       <label  class="block mb-2 text-sm font-medium text-white">Price</label>
       <input type="text" name="price"  class=" p-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{old('price')}}">
@@ -43,16 +46,14 @@
     </div>
 
 
-    {{-- radio for availibility --}}
+      {{-- Image --}}
+      <div class="row mb-3">
+        <label for="formFile" class="col-sm-2 col-form-label">Image Upload</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="file" name="photo" id="formFile">
+        </div>
+    </div>
     
-<div class="flex items-center mb-4">
-  <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-  <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Available</label>
-</div>
-<div class="flex items-center">
-  <input checked id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-  <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Not Available </label>
-</div>
 
 
 

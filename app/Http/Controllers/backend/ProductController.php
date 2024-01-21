@@ -38,23 +38,30 @@ class ProductController extends Controller
             'name.min' => ' give more letter to your name',
         ] ;
 
+        // left side = input field | right side = rules 
         $validate =  $request->validate([
             'name' => 'required|min:3|max:50',
             'desc' => 'required|min:4|max:255',
             'price' => 'required|numeric',
             'cats' => 'required',
+            'photo' => 'mimes:jpg,jpeg,png',
         ],$messages);
 
+        $filename = time(). '.' . $request->photo->extension() ;
+
       if ($validate) {
+         // left side = db field | right side = input field
         $data = [
             'name' => $request->name ,
             'description' => $request->desc ,
             'price' => $request->price ,
             'category_id' => $request->cats ,
+            'image' => $filename,
         ] ;
 
         $model = new Product();
         if( $model->insert($data) ){
+            $request->photo->move(public_path('images'), $filename);
             return redirect('/product')->with('msg' , 'successfully inserted');
         }
       }

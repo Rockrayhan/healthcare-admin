@@ -16,36 +16,42 @@ class ProductSeeder extends Seeder
             DB::table('products')->insert([
             'name' => "Killer Soup",
             'description' => 'This is product description',
+            'image' =>  'images/no_photo.jpg',
             'price' =>'120',
             'category_id' =>'1',
             ]);
             DB::table('products')->insert([
             'name' => "Red Dead Redemption",
             'description' => 'This is product description',
+            'image' =>  'images/no_photo.jpg',
             'price' =>'130',
             'category_id' =>'1',
             ]);
             DB::table('products')->insert([
             'name' => "Grand Theft auto",
             'description' => 'This is product description',
+            'image' =>  'images/no_photo.jpg',
             'price' =>'140',
             'category_id' =>'2',
             ]);
             DB::table('products')->insert([
             'name' => "Sacred Games",
             'description' => 'This is product description',
+            'image' =>  'images/no_photo.jpg',
             'price' =>'150',
             'category_id' =>'2',
             ]);
             DB::table('products')->insert([
             'name' => "Homelander",
             'description' => 'This is product description',
+            'image' =>  'images/no_photo.jpg',
             'price' =>'140',
             'category_id' =>'3',
             ]);
             DB::table('products')->insert([
             'name' => "Billy Buthcer",
             'description' => 'This is product description',
+            'image' =>  'images/no_photo.jpg',
             'price' =>'150',
             'category_id' =>'3',
             ]);

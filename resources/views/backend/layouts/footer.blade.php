@@ -1,4 +1,4 @@
-<footer class="fixed bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
+<footer class="mt-5 bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
   <div> Innovative Health Care  &copy; 2024</div>
   <div>
    Developed by
