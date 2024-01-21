@@ -33,6 +33,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'name.required' => 'Naam koi ??',
+            'name.min' => ' give more letter to your name',
+        ] ;
+
+        $validate =  $request->validate([
+            'name' => 'required|min:3|max:50',
+            'desc' => 'required|min:4|max:255',
+            'price' => 'required|numeric',
+            'cats' => 'required',
+        ],$messages);
+
+      if ($validate) {
         $data = [
             'name' => $request->name ,
             'description' => $request->desc ,
@@ -44,6 +57,7 @@ class ProductController extends Controller
         if( $model->insert($data) ){
             return redirect('/product')->with('msg' , 'successfully inserted');
         }
+      }
     }
 
     /**
@@ -78,12 +92,14 @@ class ProductController extends Controller
         ] ;
 
 
-        $request->validate([
+        $validate =  $request->validate([
             'name' => 'required|min:3|max:50',
             'desc' => 'required|min:4|max:255',
+            'price' => 'required|numeric',
+            'cats' => 'required',
         ],$messages);
 
-        // if ($validate){
+        if ($validate){
             $data = [
                 'name' => $request->name ,
                 'description' => $request->desc ,
@@ -93,7 +109,7 @@ class ProductController extends Controller
             // print_r($data);
             $product->update($data);
             return redirect('/product')->with('msg', 'data updated successfully') ;
-        // }
+        }
     }
 
     /**
