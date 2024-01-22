@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2024 at 12:43 PM
+-- Generation Time: Jan 22, 2024 at 11:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `laravel-healthcare`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$12$/E1ycA8kAElLafs7jJFKVOh5G5Wt7OMgvS3LpaAu5ZXYHqVMfbPtS', 1, NULL, '2024-01-22 07:34:19', '2024-01-22 07:34:19');
 
 -- --------------------------------------------------------
 
@@ -42,6 +67,31 @@ INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'covid', '2024-01-21 09:19:55', '2024-01-21 09:19:55'),
 (2, 'Medical', '2024-01-21 09:19:55', '2024-01-21 09:19:55'),
 (3, 'Surgery', '2024-01-21 09:19:55', '2024-01-21 09:19:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `catelogues`
+--
+
+CREATE TABLE `catelogues` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` varchar(512) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `catelogues`
+--
+
+INSERT INTO `catelogues` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
+(1, ' Product Title 1 ', 'This is product description', '2024-01-22 09:45:21', '2024-01-22 09:45:21'),
+(2, ' Product Title 2', 'This is product description', '2024-01-22 09:45:21', '2024-01-22 09:45:21'),
+(3, ' Product Title 3', 'This is product description', '2024-01-22 09:45:21', '2024-01-22 09:45:21'),
+(4, ' Product Title 4', 'This is product description', '2024-01-22 09:45:21', '2024-01-22 09:45:21'),
+(5, 'title 5', 'asdasdasdasdasdasdad', '2024-01-22 10:05:21', '2024-01-22 10:05:21');
 
 -- --------------------------------------------------------
 
@@ -81,7 +131,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2019_08_19_000000_create_failed_jobs_table', 1),
 (20, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (21, '2024_01_04_084239_create_categories_table', 1),
-(22, '2024_01_04_084331_create_products_table', 1);
+(22, '2024_01_04_084331_create_products_table', 1),
+(23, '2024_01_22_063606_create_admins_table', 2),
+(24, '2024_01_22_064122_create_admins_table', 3),
+(25, '2024_01_22_093435_create_catelogues_table', 4);
 
 -- --------------------------------------------------------
 
@@ -143,7 +196,8 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `category_id`, `im
 (12, 'Plastic face shield', 'asadsadasd', 420.00, 3, '1705834671.jpg', '2024-01-21 10:57:51', '2024-01-21 10:57:51'),
 (13, 'N95 face mask', 'asdasdasdasdasd', 1500.00, 1, '1705834700.jpg', '2024-01-21 10:58:20', '2024-01-21 10:58:20'),
 (14, 'Oxygen mask', 'asdasdsadasdsadd', 150.00, 2, '1705834734.jpg', '2024-01-21 10:58:54', '2024-01-21 10:58:54'),
-(15, 'Hand gloves', 'asdasdasdsad', 600.00, 3, '1705834753.jpg', '2024-01-21 10:59:13', '2024-01-21 10:59:13');
+(15, 'Hand gloves', 'asdasdasdsad', 600.00, 3, '1705834753.jpg', '2024-01-21 10:59:13', '2024-01-21 10:59:13'),
+(17, 'test', 'asasdasd', 600.00, 2, '1705898693.png', '2024-01-22 04:44:53', '2024-01-22 04:44:53');
 
 -- --------------------------------------------------------
 
@@ -174,9 +228,22 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 
 --
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `admins_email_unique` (`email`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `catelogues`
+--
+ALTER TABLE `catelogues`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -224,10 +291,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `catelogues`
+--
+ALTER TABLE `catelogues`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -239,7 +318,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -251,7 +330,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`

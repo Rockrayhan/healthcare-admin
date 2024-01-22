@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CatelogueController;
 use App\Http\Controllers\backend\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -105,22 +106,22 @@ Route::get('category/delete/{id}', [CategoryController::class, 'destroy'])
 
 
 // catalogue 
-Route::get('catelogue', [ProductController::class, 'index']) 
+Route::get('catelogue', [CatelogueController::class, 'index']) 
 ->name('catelogue'); 
                
-Route::get('catelogue/create', [ProductController::class, 'create']) 
+Route::get('catelogue/create', [CatelogueController::class, 'create']) 
 ->name('catelogue');
  
-Route::post('catelogue/store', [ProductController::class, 'store']) 
+Route::post('catelogue/store', [CatelogueController::class, 'store']) 
 ->name('catelogue.store');
 
-Route::get('catelogue/edit/{id}', [ProductController::class, 'edit']) 
+Route::get('catelogue/edit/{id}', [CatelogueController::class, 'edit']) 
 ->name('catelogue.edit');
 
-Route::post('catelogue/update/{id}', [ProductController::class, 'update']) 
+Route::post('catelogue/update/{id}', [CatelogueController::class, 'update']) 
 ->name('catelogue.update');
 
-Route::get('catelogue/delete/{id}', [ProductController::class, 'destroy']) 
+Route::get('catelogue/delete/{id}', [CatelogueController::class, 'destroy']) 
 ->name('catelogue.delete');
 
 
