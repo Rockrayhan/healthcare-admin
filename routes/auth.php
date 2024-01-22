@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CatelogueController;
+use App\Http\Controllers\backend\ManufacturerController;
 use App\Http\Controllers\backend\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -123,6 +124,26 @@ Route::post('catelogue/update/{id}', [CatelogueController::class, 'update'])
 
 Route::get('catelogue/delete/{id}', [CatelogueController::class, 'destroy']) 
 ->name('catelogue.delete');
+
+
+// Manufacturers
+Route::get('manufacturer', [ManufacturerController::class, 'index']) 
+->name('manufacturer'); 
+               
+Route::get('manufacturer/create', [ManufacturerController::class, 'create']) 
+->name('manufacturer');
+ 
+Route::post('manufacturer/store', [ManufacturerController::class, 'store']) 
+->name('manufacturer.store');
+
+Route::get('manufacturer/edit/{id}', [ManufacturerController::class, 'edit']) 
+->name('manufacturer.edit');
+
+Route::post('manufacturer/update/{id}', [ManufacturerController::class, 'update']) 
+->name('manufacturer.update');
+
+Route::get('manufacturer/delete/{id}', [ManufacturerController::class, 'destroy']) 
+->name('manufacturer.delete');
 
 
 
