@@ -19,9 +19,20 @@
     </div>
 @endif
 
+{{-- old --}}
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <div class="mb-4">
+        <label for="categoryFilter" class="text-sm font-medium text-gray-500 dark:text-gray-400">Filter by Category:</label>
+        <select id="categoryFilter" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <option value="">All Categories</option>
+            @foreach ($cats as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    <table id="productTable" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <!-- ... your table headers ... -->
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
@@ -48,10 +59,10 @@
                 </th>
             </tr>
         </thead>
+
         <tbody>
-            @foreach ($product as $item)
-                
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            @foreach ($products as $item)
+            <tr class="product-row bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" data-category="{{ $item->category->id }}">
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$item['name']}}
                 </td>
@@ -83,5 +94,26 @@
 
 
 
+
+
+
+
+
+{{-- old --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#categoryFilter").change(function () {
+            var selectedCategoryId = $(this).val();
+            
+            if (selectedCategoryId === "") {
+                $(".product-row").show();
+            } else {
+                $(".product-row").hide();
+                $(".product-row[data-category='" + selectedCategoryId + "']").show();
+            }
+        });
+    });
+</script>
 
 @endsection

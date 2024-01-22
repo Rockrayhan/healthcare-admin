@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2024 at 11:12 AM
+-- Generation Time: Jan 22, 2024 at 06:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -112,6 +112,29 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `manufacturers`
+--
+
+CREATE TABLE `manufacturers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `manufacturers`
+--
+
+INSERT INTO `manufacturers` (`id`, `name`, `country`, `created_at`, `updated_at`) VALUES
+(1, 'Jonson & Jonson', 'USA', '2024-01-22 15:49:09', '2024-01-22 15:49:09'),
+(2, 'Healforce', 'China', '2024-01-22 15:49:09', '2024-01-22 15:49:09'),
+(3, 'Meditron', 'Canada', '2024-01-22 15:49:09', '2024-01-22 15:49:09');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -134,7 +157,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (22, '2024_01_04_084331_create_products_table', 1),
 (23, '2024_01_22_063606_create_admins_table', 2),
 (24, '2024_01_22_064122_create_admins_table', 3),
-(25, '2024_01_22_093435_create_catelogues_table', 4);
+(25, '2024_01_22_093435_create_catelogues_table', 4),
+(26, '2024_01_22_154159_create_migrations_table', 5);
 
 -- --------------------------------------------------------
 
@@ -179,6 +203,7 @@ CREATE TABLE `products` (
   `description` varchar(100) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `category_id` tinyint(4) NOT NULL,
+  `manufacturer_id` tinyint(11) NOT NULL,
   `image` varchar(100) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -188,16 +213,16 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `description`, `price`, `category_id`, `image`, `created_at`, `updated_at`) VALUES
-(8, 'Hand sanitizer', 'This is Product Description', 500.00, 1, '1705834501.jpg', '2024-01-21 10:55:01', '2024-01-21 10:55:01'),
-(9, 'Plastic face shield', 'asasadasdasasd', 600.00, 2, '1705834590.jpg', '2024-01-21 10:56:30', '2024-01-21 10:56:30'),
-(10, 'Glass face mask', 'asdasdasd', 200.00, 2, '1705834611.jpg', '2024-01-21 10:56:51', '2024-01-21 10:56:51'),
-(11, 'Saftey mask', 'aasdadasd', 420.00, 3, '1705834644.jpg', '2024-01-21 10:57:24', '2024-01-21 10:57:24'),
-(12, 'Plastic face shield', 'asadsadasd', 420.00, 3, '1705834671.jpg', '2024-01-21 10:57:51', '2024-01-21 10:57:51'),
-(13, 'N95 face mask', 'asdasdasdasdasd', 1500.00, 1, '1705834700.jpg', '2024-01-21 10:58:20', '2024-01-21 10:58:20'),
-(14, 'Oxygen mask', 'asdasdsadasdsadd', 150.00, 2, '1705834734.jpg', '2024-01-21 10:58:54', '2024-01-21 10:58:54'),
-(15, 'Hand gloves', 'asdasdasdsad', 600.00, 3, '1705834753.jpg', '2024-01-21 10:59:13', '2024-01-21 10:59:13'),
-(17, 'test', 'asasdasd', 600.00, 2, '1705898693.png', '2024-01-22 04:44:53', '2024-01-22 04:44:53');
+INSERT INTO `products` (`id`, `name`, `description`, `price`, `category_id`, `manufacturer_id`, `image`, `created_at`, `updated_at`) VALUES
+(8, 'Hand sanitizer', 'This is Product Description', 500.00, 1, 1, '1705834501.jpg', '2024-01-21 10:55:01', '2024-01-21 10:55:01'),
+(9, 'Plastic face shield', 'asasadasdasasd', 600.00, 2, 1, '1705834590.jpg', '2024-01-21 10:56:30', '2024-01-21 10:56:30'),
+(10, 'Glass face mask', 'asdasdasd', 200.00, 2, 2, '1705834611.jpg', '2024-01-21 10:56:51', '2024-01-21 10:56:51'),
+(11, 'Saftey mask', 'aasdadasd', 420.00, 3, 2, '1705834644.jpg', '2024-01-21 10:57:24', '2024-01-21 10:57:24'),
+(12, 'Plastic face shield', 'asadsadasd', 420.00, 3, 3, '1705834671.jpg', '2024-01-21 10:57:51', '2024-01-21 10:57:51'),
+(13, 'N95 face mask', 'asdasdasdasdasd', 1500.00, 1, 3, '1705834700.jpg', '2024-01-21 10:58:20', '2024-01-21 10:58:20'),
+(14, 'Oxygen mask', 'asdasdsadasdsadd', 150.00, 2, 1, '1705834734.jpg', '2024-01-21 10:58:54', '2024-01-21 10:58:54'),
+(15, 'Hand gloves', 'asdasdasdsad', 600.00, 3, 1, '1705834753.jpg', '2024-01-21 10:59:13', '2024-01-21 10:59:13'),
+(17, 'test', 'asasdasd', 600.00, 2, 1, '1705898693.png', '2024-01-22 04:44:53', '2024-01-22 04:44:53');
 
 -- --------------------------------------------------------
 
@@ -252,6 +277,12 @@ ALTER TABLE `catelogues`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `manufacturers`
+--
+ALTER TABLE `manufacturers`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -315,10 +346,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `manufacturers`
+--
+ALTER TABLE `manufacturers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
