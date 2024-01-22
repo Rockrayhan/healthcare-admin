@@ -14,14 +14,30 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// frontend
+
+// frontend routes
 Route::get('/', function () {
     return view('frontend.home');
 });
+
 Route::get('/shop', function () {
     return view('frontend.shop');
 })->name('shop');
 
+Route::get('/about', function () {
+    return view('frontend.about');
+})->name('about');
+
+Route::get('/blog', function () {
+    return view('frontend.blog');
+})->name('blog');
+
+Route::get('/contact', function () {
+    return view('frontend.contact');
+})->name('contact');
+
+
+// frontend controllers
 Route::get('/', [HomeController::class, 'index']) ;
 
 Route::get('/dashboard', function () {

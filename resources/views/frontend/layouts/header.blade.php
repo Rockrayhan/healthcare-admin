@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="cv-head-contact">
-                        <h3>Phone: +001 456-789-2591</h3>
+                        <h3>Phone: +880 18302 00789</h3>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -50,14 +50,14 @@
             <div class="row">
                 <div class="col-lg-3 col-9">
                     <div class="cv-logo">
-                        <a href="index.html"><img src="assets/images/logo.svg" alt="image" class="img-fluid"/></a>
+                        <a href="index.html"><img src="{{asset('assets/images/logo.svg')}}" alt="image" class="img-fluid"/></a>
                     </div>
                 </div>
                 <div class="col-lg-9 col-3">
                     <div class="cv-nav-bar">
                         <div class="cv-menu">
                             <ul>
-                                <li class="cv-children-menu"><a href="/">Home</a>
+                                <li class=""><a href="/">Home</a>
                                 </li>
                                 <li class="cv-children-menu cv-mega-li"><a href="{{route('shop')}}">Shop</a>
                                     <div class="cv-mega-menu">
@@ -111,8 +111,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="./index-2/shop.html">Shop</a></li>
-                                <li><a href="./index-2/about.html">About</a></li>
+                                <li><a href="{{route('about')}}">About</a></li>
                                 <li><a href="./index-2/service.html">Service</a></li>
                                 <li class="cv-children-menu"><a href="javascript:;">Pages</a>
                                     <ul class="cv-sub-mmenu">
@@ -123,8 +122,8 @@
                                         <li><a href="./index-2/checkout.html">Checkout</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="./index-2/blog.html">Blog</a></li>
-                                <li><a href="./index-2/contact.html">Contact</a></li>
+                                <li><a href="{{route('blog')}}">Blog</a></li>
+                                <li><a href="{{route('contact')}}">Contact</a></li>
                                 <li><a href="/dashboard">Admin</a></li>
                             </ul>
                         </div>

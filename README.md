@@ -9,3 +9,5 @@
  8. Discount
  9. Orders
  10. Payments
+ 11. Blogs/Catalogue
+ 

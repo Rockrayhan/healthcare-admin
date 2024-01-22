@@ -12,8 +12,8 @@
                             <p><span>Total : </span>8</p>
                         </div>
                         <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
-                            <div class="cv-gallery-grid">
-                                <div class="cv-product-box cv-product-item cv-hand">
+                            <div class="row">
+                                <div class="cv-product-box cv-product-item cv-hand col-lg-4">
                                     <div class="cv-product-img">
                                         <img src="https://via.placeholder.com/210x210" alt="image" class="img-fluid"/>
                                         <div class="cv-product-button">
@@ -55,7 +55,7 @@
                                         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
                                     </div>
                                 </div>
-                                <div class="cv-product-box cv-product-item cv-face cv-body">
+                                <div class="cv-product-box cv-product-item cv-face cv-body col-lg-4">
                                     <div class="cv-product-img">
                                         <img src="https://via.placeholder.com/210x210" alt="image" class="img-fluid"/>
                                         <div class="cv-product-button">
@@ -97,7 +97,7 @@
                                         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
                                     </div>
                                 </div>
-                                <div class="cv-product-box cv-product-item cv-face cv-body">
+                                <div class="cv-product-box cv-product-item cv-face cv-body col-lg-4">
                                     <div class="cv-product-img">
                                         <span class="cv-sale">sale</span>
                                         <img src="https://via.placeholder.com/210x210" alt="image" class="img-fluid"/>
@@ -140,7 +140,7 @@
                                         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
                                     </div>
                                 </div>
-                                <div class="cv-product-box cv-product-item cv-face">
+                                <div class="cv-product-box cv-product-item cv-face col-lg-4">
                                     <div class="cv-product-img">
                                         <img src="https://via.placeholder.com/210x210" alt="image" class="img-fluid"/>
                                         <div class="cv-product-button">
@@ -182,7 +182,7 @@
                                         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
                                     </div>
                                 </div>
-                                <div class="cv-product-box cv-product-item cv-face cv-body">
+                                <div class="cv-product-box cv-product-item cv-face cv-body col-lg-4">
                                     <div class="cv-product-img">
                                         <span class="cv-sale">sale</span>
                                         <img src="https://via.placeholder.com/210x210" alt="image" class="img-fluid"/>
@@ -225,7 +225,7 @@
                                         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
                                     </div>
                                 </div>
-                                <div class="cv-product-box cv-product-item cv-face">
+                                <div class="cv-product-box cv-product-item cv-face col-lg-4">
                                     <div class="cv-product-img">
                                         <img src="https://via.placeholder.com/210x210" alt="image" class="img-fluid"/>
                                         <div class="cv-product-button">
@@ -267,7 +267,7 @@
                                         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
                                     </div>
                                 </div>
-                                <div class="cv-product-box cv-product-item cv-face">
+                                <div class="cv-product-box cv-product-item cv-face col-lg-4">
                                     <div class="cv-product-img">
                                         <span class="cv-sale">sale</span>
                                         <img src="https://via.placeholder.com/210x210" alt="image" class="img-fluid"/>
@@ -310,7 +310,7 @@
                                         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
                                     </div>
                                 </div>
-                                <div class="cv-product-box cv-product-item cv-hand">
+                                <div class="cv-product-box cv-product-item cv-hand col-lg-4">
                                     <div class="cv-product-img">
                                         <span class="cv-sale">sale</span>
                                         <img src="https://via.placeholder.com/210x210" alt="image" class="img-fluid"/>
