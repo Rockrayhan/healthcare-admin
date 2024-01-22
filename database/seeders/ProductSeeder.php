@@ -14,46 +14,68 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
             DB::table('products')->insert([
-            'name' => "Killer Soup",
+            'name' => "Hand sanitizer",
             'description' => 'This is product description',
             'image' =>  'images/no_photo.jpg',
             'price' =>'120',
             'category_id' =>'1',
+            'manufacturer_id' =>'1',
             ]);
             DB::table('products')->insert([
-            'name' => "Red Dead Redemption",
+            'name' => "Plastic face shield",
             'description' => 'This is product description',
             'image' =>  'images/no_photo.jpg',
             'price' =>'130',
             'category_id' =>'1',
+            'manufacturer_id' =>'1',
             ]);
             DB::table('products')->insert([
-            'name' => "Grand Theft auto",
+            'name' => "Glass face mask",
             'description' => 'This is product description',
             'image' =>  'images/no_photo.jpg',
             'price' =>'140',
             'category_id' =>'2',
+            'manufacturer_id' =>'2',
             ]);
             DB::table('products')->insert([
-            'name' => "Sacred Games",
+            'name' => "Saftey mask",
             'description' => 'This is product description',
             'image' =>  'images/no_photo.jpg',
             'price' =>'150',
             'category_id' =>'2',
+            'manufacturer_id' =>'2',
             ]);
             DB::table('products')->insert([
-            'name' => "Homelander",
+            'name' => "Plastic face shield",
             'description' => 'This is product description',
             'image' =>  'images/no_photo.jpg',
             'price' =>'140',
             'category_id' =>'3',
+            'manufacturer_id' =>'3',
             ]);
             DB::table('products')->insert([
-            'name' => "Billy Buthcer",
+            'name' => "N95 face mask",
             'description' => 'This is product description',
             'image' =>  'images/no_photo.jpg',
             'price' =>'150',
             'category_id' =>'3',
+            'manufacturer_id' =>'3',
+            ]);
+            DB::table('products')->insert([
+            'name' => "Oxygen mask",
+            'description' => 'This is product description',
+            'image' =>  'images/no_photo.jpg',
+            'price' =>'140',
+            'category_id' =>'3',
+            'manufacturer_id' =>'3',
+            ]);
+            DB::table('products')->insert([
+            'name' => "Hand gloves",
+            'description' => 'This is product description',
+            'image' =>  'images/no_photo.jpg',
+            'price' =>'150',
+            'category_id' =>'3',
+            'manufacturer_id' =>'3',
             ]);
     }
 }

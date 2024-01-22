@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Manufacturer;
 use App\Models\Product;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
@@ -24,8 +25,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $data['cats'] = Category::all();
-        return view('backend.products.create', $data);
+        $cats = Category::all();
+        $manufacturer = Manufacturer::all();
+        return view('backend.products.create', compact('cats', 'manufacturer'));
     }
 
     /**

@@ -44,6 +44,17 @@
         @endforeach
       </select>
     </div>
+    
+    {{-- manufacturer --}}
+    <div class="mb-5">
+      <label  class="block mb-2 text-sm font-medium ">manufacturer</label>
+      <select name="cats" class="bg-gray-500">
+        <option class="bg-gray-500" value="">Select a manufacturer</option>  
+        @foreach ($manufacturer as $item)
+        <option class="bg-gray-500" value="{{$item['id']}}" {{old('cats')==$item['id'] ? 'selected': '' }} > {{$item['name']}} </option>  
+        @endforeach
+      </select>
+    </div>
 
 
       {{-- Image --}}

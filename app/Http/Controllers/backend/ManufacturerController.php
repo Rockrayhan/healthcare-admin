@@ -22,7 +22,7 @@ class ManufacturerController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create') ;
+        return view('backend.Manufacturers.create') ;
     }
 
     /**
@@ -30,11 +30,15 @@ class ManufacturerController extends Controller
      */
     public function store(Request $request)
     {
-        $data  = ['name' => $request->name];
+        $data  = [
+            'name' => $request->name,
+            'country' => $request->country
+    
+    ];
 
         $model = new Manufacturer();
         if ( $model->insert($data) ){
-            return redirect('category')->with('msg' , 'Successfully category added');
+            return redirect('/manufacturer')->with('msg' , 'Successfully manufacturer added');
         }
     }
 
