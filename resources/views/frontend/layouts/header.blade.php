@@ -57,16 +57,9 @@
                     <div class="cv-nav-bar">
                         <div class="cv-menu">
                             <ul>
-                                <li class="cv-children-menu"><a href="javascript:;">Home</a>
-                                    <ul class="cv-sub-mmenu">
-                                        <li><a href="./Index-1/index.html">Home 1</a></li>
-                                        <li><a href="./Index-2/index5.html">Home 2</a></li>
-                                        <li><a href="./Index-3/index2.html">Home 3</a></li>
-                                        <li><a href="./Index-4/index3.html">Home 4</a></li>
-                                        <li><a href="./Index-5/index4.html">Home 5</a></li>
-                                    </ul>
+                                <li class="cv-children-menu"><a href="/">Home</a>
                                 </li>
-                                <li class="cv-children-menu cv-mega-li"><a href="javascript:;">Collection</a>
+                                <li class="cv-children-menu cv-mega-li"><a href="{{route('shop')}}">Shop</a>
                                     <div class="cv-mega-menu">
                                         <div class="cm-menu-list">
                                             <ul>
