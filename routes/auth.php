@@ -101,4 +101,29 @@ Route::post('category/update/{id}', [CategoryController::class, 'update'])
 Route::get('category/delete/{id}', [CategoryController::class, 'destroy']) 
 ->name('category.delete');  
 
+
+
+
+// catalogue 
+Route::get('catelogue', [ProductController::class, 'index']) 
+->name('catelogue'); 
+               
+Route::get('catelogue/create', [ProductController::class, 'create']) 
+->name('catelogue');
+ 
+Route::post('catelogue/store', [ProductController::class, 'store']) 
+->name('catelogue.store');
+
+Route::get('catelogue/edit/{id}', [ProductController::class, 'edit']) 
+->name('catelogue.edit');
+
+Route::post('catelogue/update/{id}', [ProductController::class, 'update']) 
+->name('catelogue.update');
+
+Route::get('catelogue/delete/{id}', [ProductController::class, 'destroy']) 
+->name('catelogue.delete');
+
+
+
+
 });

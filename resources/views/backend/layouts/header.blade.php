@@ -24,7 +24,7 @@
         href="index.html"
         class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
       >
-      Welcome <span class="text-teal-400">{{Auth::user()->name}}</span>
+      Welcome to Dashboard
       </a>
 
       <!-- Mobile sub menu button -->

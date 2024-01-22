@@ -25,7 +25,7 @@
         </div>
 
         <!-- Sidebar -->
-            @include('backend.layouts.sidebar')
+            @include('backend.layouts.editorSidebar')
 
         <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
 
@@ -623,7 +623,7 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-    <script src="{{asset('build/js/script.js')}}"></script>
+    <script src="build/js/script.js"></script>
     <script>
       const setup = () => {
         const getTheme = () => {
