@@ -108,7 +108,10 @@ class ProductController extends Controller
             'desc' => 'required|min:4|max:255',
             'price' => 'required|numeric',
             'cats' => 'required',
+            'photo' => 'mimes:jpg,jpeg,png',
         ],$messages);
+
+        $filename = time(). '.' . $request->photo->extension() ;
 
         if ($validate){
             $data = [
@@ -116,9 +119,11 @@ class ProductController extends Controller
                 'description' => $request->desc ,
                 'price' => $request->price ,
                 'category_id' => $request->cats ,
+                'image' => $filename,
             ] ;
             // print_r($data);
             $product->update($data);
+            $request->photo->move(public_path('images'), $filename);
             return redirect('/product')->with('msg', 'data updated successfully') ;
         }
     }

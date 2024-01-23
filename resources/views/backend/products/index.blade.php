@@ -19,14 +19,6 @@
     </div>
 @endif
 
-{{-- old --}}
-
-
-
-
-
-
-
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <div class="flex gap-4 justify-end p-5">
@@ -121,7 +113,7 @@
 
 
 
-{{-- old --}}
+
 <script>
     // Add an event listener to handle changes in the category and manufacturer filters
     document.getElementById('categoryFilter').addEventListener('change', handleFilterChange);

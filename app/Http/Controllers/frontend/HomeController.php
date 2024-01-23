@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Manufacturer;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,9 @@ class HomeController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   $manufacturers = Manufacturer::all();
         $product = Product::all();
-        return view('frontend.home', compact('product'));
+        return view('frontend.home', compact('product', 'manufacturers'));
     }
     
 

@@ -14,7 +14,7 @@
 </div>
 @endif
 
-<form class="max-w-sm mx-auto" method="POST" action="/product/update/{{$data['product']->id}}">
+<form class="max-w-sm mx-auto" method="POST" action="/product/update/{{$data['product']->id}}" enctype="multipart/form-data">
     @csrf
     <div class="mb-5">
       <label  class="block mb-2 text-sm font-medium text-white">Product Name</label>
@@ -23,7 +23,7 @@
 
     <div class="mb-5">
       <label  class="block mb-2 text-sm font-medium text-white">Product Description</label>
-      <textarea class="bg-gray-700" name="desc" cols="50" rows="5" ></textarea>
+      <textarea class="bg-gray-700" name="desc" cols="50" rows="5"> {{$data['product']->description}} </textarea>
     </div>
 
     <div class="mb-5">
@@ -37,9 +37,19 @@
         @foreach ($data2['cats'] as $item)
         <option class="bg-gray-500" value="{{$item['id']}}"> {{$item['name']}} </option>  
         @endforeach
-  
       </select>
     </div>
+
+          {{-- Image --}}
+          <div class="flex gap-10"> 
+            <div class="row mb-3">
+            <label for="formFile" class="col-sm-2 col-form-label">Image Upload</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="file" name="photo" id="formFile">
+            </div>
+        </div>
+
+        <div><img src="{{asset('images/'.$item['image'])}}" height="50px" width="50px" alt=""></div> </div>
 
     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
   </form>

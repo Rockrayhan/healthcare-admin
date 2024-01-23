@@ -208,7 +208,10 @@
                         </div>
                         <div class="cv-product-data">
                             <a href="product-single.html" class="cv-price-title">  {{$item['name']}} </a>
-                            <p class="cv-pdoduct-price"> {{$item['price']}} </p>
+                            <div class="d-flex justify-content-between">
+                                <p class="cv-pdoduct-price"> {{$item['price']}} </p>
+                                <p class="cv-pdoduct-price"> <span class="text-black fw-bold">Manufacturer :</span> <br> {{$item->manufacturer->name}} </p>
+                            </div>
                             <a href="javascript:;" class="cv-price-cart">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                     <g>
