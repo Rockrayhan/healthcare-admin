@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\ProductDetailsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,8 @@ Route::get('/contact', function () {
 
 // frontend controllers
 Route::get('/', [HomeController::class, 'index']) ;
+
+Route::get('/product/details/{id}', [ProductDetailsController::class, 'index'])->name('product.details') ;
 
 Route::get('/dashboard', function () {
     return view('backend.dashboard');

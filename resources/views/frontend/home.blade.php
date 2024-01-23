@@ -207,7 +207,7 @@
                             </div>
                         </div>
                         <div class="cv-product-data">
-                            <a href="product-single.html" class="cv-price-title">  {{$item['name']}} </a>
+                            <a href="/product/details/{{$item['id']}}" class="cv-price-title">  {{$item['name']}} </a>
                             <div class="d-flex justify-content-between">
                                 <p class="cv-pdoduct-price"> {{$item['price']}} </p>
                                 <p class="cv-pdoduct-price"> <span class="text-black fw-bold">Manufacturer :</span> <br> {{$item->manufacturer->name}} </p>
