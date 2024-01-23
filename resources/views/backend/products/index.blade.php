@@ -2,7 +2,7 @@
 
 
 @section('content')
-<h1> All Products </h1>
+<h1 class="text-4xl text-center my-2"> All Products </h1>
 
 @if (session('msg'))
     <div class="">
@@ -21,7 +21,16 @@
 
 {{-- old --}}
 
+
+
+
+
+
+
+
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="flex gap-4 justify-end p-5">
+      <!-- Category Filter -->
     <div class="mb-4">
         <label for="categoryFilter" class="text-sm font-medium text-gray-500 dark:text-gray-400">Filter by Category:</label>
         <select id="categoryFilter" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -31,6 +40,22 @@
             @endforeach
         </select>
     </div>
+
+    <!-- Manufacturer Filter -->
+    <div class="mb-4">
+        <label for="manufacturerFilter" class="text-sm font-medium text-gray-500 dark:text-gray-400">Filter by Manufacturer:</label>
+        <select id="manufacturerFilter" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <option value="">All Manufacturers</option>
+            @foreach ($manufacturers as $manufacturer)
+                <option value="{{ $manufacturer->id }}">{{ $manufacturer->name }}</option>
+            @endforeach
+        </select>
+    </div>
+
+
+    </div>
+
+
     <table id="productTable" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <!-- ... your table headers ... -->
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -62,7 +87,7 @@
 
         <tbody>
             @foreach ($products as $item)
-            <tr class="product-row bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" data-category="{{ $item->category->id }}">
+            <tr class="product-row bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" data-category="{{ $item->category->id }}" data-manufacturer="{{ $item->manufacturer->id }}">
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$item['name']}}
                 </td>
@@ -96,24 +121,30 @@
 
 
 
-
-
-
 {{-- old --}}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $("#categoryFilter").change(function () {
-            var selectedCategoryId = $(this).val();
-            
-            if (selectedCategoryId === "") {
-                $(".product-row").show();
+    // Add an event listener to handle changes in the category and manufacturer filters
+    document.getElementById('categoryFilter').addEventListener('change', handleFilterChange);
+    document.getElementById('manufacturerFilter').addEventListener('change', handleFilterChange);
+
+    function handleFilterChange() {
+        // Get the selected values from both filters
+        var selectedCategory = document.getElementById('categoryFilter').value;
+        var selectedManufacturer = document.getElementById('manufacturerFilter').value;
+
+        // Filter the table rows based on the selected values
+        var rows = document.querySelectorAll('.product-row');
+        rows.forEach(function (row) {
+            var categoryMatch = selectedCategory === '' || row.getAttribute('data-category') === selectedCategory;
+            var manufacturerMatch = selectedManufacturer === '' || row.getAttribute('data-manufacturer') === selectedManufacturer;
+
+            if (categoryMatch && manufacturerMatch) {
+                row.style.display = 'table-row';
             } else {
-                $(".product-row").hide();
-                $(".product-row[data-category='" + selectedCategoryId + "']").show();
+                row.style.display = 'none';
             }
         });
-    });
+    }
 </script>
 
 @endsection
