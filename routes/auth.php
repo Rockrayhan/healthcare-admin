@@ -12,7 +12,6 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CatelogueController;
 use App\Http\Controllers\backend\ManufacturerController;
-use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -146,25 +145,6 @@ Route::post('manufacturer/update/{id}', [ManufacturerController::class, 'update'
 Route::get('manufacturer/delete/{id}', [ManufacturerController::class, 'destroy']) 
 ->name('manufacturer.delete');
 
-
-// Orders
-Route::get('orders', [OrderController::class, 'index']) 
-->name('orders'); 
-               
-Route::get('orders/create', [OrderController::class, 'create']) 
-->name('orders');
- 
-Route::post('orders/store', [OrderController::class, 'store']) 
-->name('orders.store');
-
-Route::get('orders/edit/{id}', [OrderController::class, 'edit']) 
-->name('orders.edit');
-
-Route::post('orders/update/{id}', [OrderController::class, 'update']) 
-->name('orders.update');
-
-Route::get('orders/delete/{id}', [OrderController::class, 'destroy']) 
-->name('orders.delete');
 
 
 

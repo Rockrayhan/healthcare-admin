@@ -71,16 +71,16 @@
                                 </div>
                             @endif
 
-                            @if (session('msg_delete'))
+                            @if (session('msg'))
                                 <div class="">
                                     <div class="p-4 text-white bg-red-500 rounded-lg shadow-md">
-                                        {{ session('msg_delete') }}
+                                        {{ session('msg') }}
                                     </div>
                                 </div>
                             @endif
 
                             <h2 class="cv-sidebar-title">Order Now</h2>
-                            <form method="POST" action="{{route('orders.store')}}">
+                            <form method="POST" action="{{route('orders.store')}}" >
                                 @csrf
                                 Name: <br>
                                 <input type="text" name="u_name" placeholder="Enter Your Name" />

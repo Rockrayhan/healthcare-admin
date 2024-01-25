@@ -14,7 +14,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
-        return view('backend.products.index', compact('orders'));
+        return view('backend.orders.index', compact('orders'));
     }
 
     /**
@@ -37,12 +37,12 @@ class OrderController extends Controller
         // ] ;
 
         // left side = input field | right side = rules 
-        $validate =  $request->validate([
-            'name' => 'required|min:3|max:50',
-        ]);
+        // $validate =  $request->validate([
+        //     'name' => 'required|min:3|max:50',
+        // ]);
 
 
-      if ($validate) {
+    //   if ($validate) {
          // left side = db field | right side = input field
         $data = [
             'u_name' => $request->u_name ,
@@ -50,12 +50,13 @@ class OrderController extends Controller
             'p_name' => $request->p_name ,
             'quantity' => $request->quantity ,
         ] ;
+        // dd($data);
 
         $model = new Order();
-        if( $model->insert($data) ){
-            return redirect('/product')->with('msg' , 'successfully inserted');
+        if( $model->insert($data)){
+            return back()->with('msg' , 'successfully inserted');
         }
-      }
+    //   }
     }
 
     /**

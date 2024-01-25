@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ProductDetailsController;
 use App\Http\Controllers\ProfileController;
@@ -51,7 +52,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');    
 });
 
 
@@ -60,6 +61,24 @@ Route::get('admin/login', [AdminController::class,'login']) ;
 Route::post('admin/login', [AdminController::class,'store'])->name('adminLogin') ;
 Route::get('admin/dashboard', [AdminController::class,'dashboard'])->name('admin.dashboard');
 
+// Orders
+Route::get('orders', [OrderController::class, 'index']) ;
+
+               
+Route::get('orders/create', [OrderController::class, 'create']) 
+->name('orders');
+ 
+Route::post('orders/store', [OrderController::class, 'store']) 
+->name('orders.store');
+
+Route::get('orders/edit/{id}', [OrderController::class, 'edit']) 
+->name('orders.edit');
+
+Route::post('orders/update/{id}', [OrderController::class, 'update']) 
+->name('orders.update');
+
+Route::get('orders/delete/{id}', [OrderController::class, 'destroy']) 
+->name('orders.delete');
 
 
 
