@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2024 at 06:49 PM
+-- Generation Time: Jan 25, 2024 at 11:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -158,7 +158,36 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (23, '2024_01_22_063606_create_admins_table', 2),
 (24, '2024_01_22_064122_create_admins_table', 3),
 (25, '2024_01_22_093435_create_catelogues_table', 4),
-(26, '2024_01_22_154159_create_migrations_table', 5);
+(26, '2024_01_22_154159_create_migrations_table', 5),
+(27, '2024_01_23_070024_create_orders_table', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `u_name` varchar(100) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `p_name` varchar(50) NOT NULL,
+  `quantity` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `u_name`, `phone`, `p_name`, `quantity`, `created_at`, `updated_at`) VALUES
+(1, 'Masum', '1500000', 'Glass face mask', '50', '2024-01-25 07:09:17', '2024-01-25 07:09:17'),
+(2, 'Masum', '0155555', 'Hand gloves', '50', '2024-01-25 07:11:50', '2024-01-25 07:11:50'),
+(3, 'Masum', '0158080', 'Glass face mask', '50', '2024-01-25 07:14:50', '2024-01-25 07:14:50'),
+(4, 'Masum', '0158080', 'Glass face mask', '50', '2024-01-25 07:17:02', '2024-01-25 07:17:02'),
+(5, 'Masum', '0155555', 'Glass face mask', '50', '2024-01-25 07:19:54', '2024-01-25 07:19:54'),
+(6, 'Masum', '0155555', 'Glass face mask', '50', '2024-01-25 07:23:01', '2024-01-25 07:23:01');
 
 -- --------------------------------------------------------
 
@@ -222,7 +251,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `category_id`, `ma
 (13, 'N95 face mask', 'asdasdasdasdasd', 1500.00, 1, 3, '1705834700.jpg', '2024-01-21 10:58:20', '2024-01-21 10:58:20'),
 (14, 'Oxygen mask', 'asdasdsadasdsadd', 150.00, 2, 1, '1705834734.jpg', '2024-01-21 10:58:54', '2024-01-21 10:58:54'),
 (15, 'Hand gloves', 'asdasdasdsad', 600.00, 3, 1, '1705834753.jpg', '2024-01-21 10:59:13', '2024-01-21 10:59:13'),
-(17, 'test', 'asasdasd', 600.00, 2, 1, '1705898693.png', '2024-01-22 04:44:53', '2024-01-22 04:44:53');
+(17, 'test', 'asasdasd', 600.00, 1, 1, '1705983854.jpg', '2024-01-22 04:44:53', '2024-01-22 22:24:14');
 
 -- --------------------------------------------------------
 
@@ -291,6 +320,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -355,7 +390,13 @@ ALTER TABLE `manufacturers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
